@@ -2741,6 +2741,19 @@ $defs: # JSON Schema definition (maybe we should move these to a separate file)
         description: Toggle to display or hide bit numbers.
         type: boolean
         default: true
+      bitOrder:
+        description: |
+          The direction each row is numbered in. `descending` mirrors every row so it reads from
+          its most significant bit down to bit 0, the convention used for hardware registers.
+          Fields are still declared lowest bit first, and keep their width.
+        type: string
+        enum:
+          - ascending
+          - descending
+        meta:enum:
+          ascending: Number each row from bit 0 on the left up to its highest bit on the right.
+          descending: Number each row from its highest bit on the left down to bit 0 on the right.
+        default: ascending
       paddingX:
         description: The horizontal padding between the blocks in a row.
         type: number
